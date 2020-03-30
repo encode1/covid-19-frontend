@@ -15,14 +15,7 @@
             <h3 class="card-title">153</h3>
           </div>
         </div>
-        <div class="card">
-          <div class="card-header">
-            <strong>Confirmed Cases by Regions</strong>
-          </div>
-          <ul class="list-group list-group-flush region-list">
-            <li v-for="(region, index) in regions" :key="index" class="list-group-item">{{region.name}}</li>
-          </ul>
-        </div>
+        <ConfirmedList :regions="regions"/>
       </div>
       <!-- /.col-2 -->
       <div class="col-7 p-1">
@@ -36,27 +29,11 @@
       <div class="col-3">
         <div class="row">
           <div class="col-6 p-1">
-            <div class="card">
-              <div class="card-header pb-0">
-                <h6 class="card-subtitle text-muted mb-2 small"><strong>Total Deaths</strong></h6>
-                <h3 class="card-title mb-0">5</h3>
-              </div>
-              <ul class="list-group list-group-flush region-list">
-                <li v-for="(region, index) in regions" :key="index" class="list-group-item">{{region.name}}</li>
-              </ul>
-            </div>
+            <DeathList :regions="regions"/>
           </div>
           <!-- /.col-6 -->
           <div class="col-6 p-1">
-            <div class="card">
-              <div class="card-header pb-0">
-                <h6 class="card-subtitle text-muted mb-2 small"><strong>Total Recovered</strong></h6>
-                <h3 class="card-title mb-0">2</h3>
-              </div>
-              <ul class="list-group list-group-flush region-list">
-                <li v-for="(region, index) in regions" :key="index" class="list-group-item">{{region.name}}</li>
-              </ul>
-            </div>
+            <RecoveredList :regions="regions"/>
           </div>
           <!-- /.col-6 -->
         </div>
@@ -70,8 +47,16 @@
 </template>
 
 <script>
+  import ConfirmedList from "./ConfirmedList";
+  import DeathList from "./DeathList";
+  import RecoveredList from "./RecoveredList";
 export default {
-  name: 'HelloWorld',
+  name: 'Container',
+  components: {
+    ConfirmedList,
+    DeathList,
+    RecoveredList
+  },
   data(){
     return{
       regions: [
