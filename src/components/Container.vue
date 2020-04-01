@@ -19,11 +19,7 @@
       </div>
       <!-- /.col-2 -->
       <div class="col-7 p-1">
-        <div class="card">
-          <div class="card-body">
-            This is where the map will appear.
-          </div>
-        </div>
+        <CaseMap :regions="regions"/>
       </div>
       <!-- /.col-7 -->
       <div class="col-3">
@@ -50,12 +46,14 @@
   import ConfirmedList from "./ConfirmedList";
   import DeathList from "./DeathList";
   import RecoveredList from "./RecoveredList";
+  import CaseMap from "./CaseMap";
   export default {
     name: 'Container',
     components: {
       ConfirmedList,
       DeathList,
-      RecoveredList
+      RecoveredList,
+      CaseMap
     },
     mounted() {
       this.confirmed_list = [...this.regions];
@@ -80,22 +78,22 @@
     data(){
       return{
         regions: [
-          {'id':1, 'name': 'Ashanti Region', 'confirmed': 8, 'death': 2, 'recovered': 1, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':2, 'name': 'Bono Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':3, 'name': 'Bono East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':4, 'name': 'Ahafo Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':5, 'name': 'Central Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':6, 'name': 'Eastern Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':7, 'name': 'Greater Accra Region', 'confirmed': 126, 'death': 3, 'recovered': 1, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':8, 'name': 'Northern Region', 'confirmed': 10, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':9, 'name': 'Savannah Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':10, 'name': 'North East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':11, 'name': 'Upper East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':12, 'name': 'Upper West Region', 'confirmed': 1, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':13, 'name': 'Volta Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':14, 'name': 'Oti Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':15, 'name': 'Western Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
-          {'id':16, 'name': 'Western North Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.234512, 'latitude': -0.283893},
+          {'id':1, 'name': 'Ashanti Region', 'confirmed': 8, 'death': 2, 'recovered': 1, 'longitude': -1.610249, 'latitude': 6.679563},
+          {'id':2, 'name': 'Bono Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -2.328566, 'latitude': 7.336451},
+          {'id':3, 'name': 'Bono East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -1.932456, 'latitude': 7.596365},
+          {'id':4, 'name': 'Ahafo Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -2.513065, 'latitude': 6.804260},
+          {'id':5, 'name': 'Central Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -1.116047, 'latitude': 5.497993},
+          {'id':6, 'name': 'Eastern Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -0.482580, 'latitude': 6.343303},
+          {'id':7, 'name': 'Greater Accra Region', 'confirmed': 126, 'death': 3, 'recovered': 1, 'longitude': -0.181830, 'latitude': 5.608725},
+          {'id':8, 'name': 'Northern Region', 'confirmed': 10, 'death': 0, 'recovered': 0, 'longitude': -0.831974, 'latitude': 9.408296},
+          {'id':9, 'name': 'Savannah Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -1.821803, 'latitude': 9.108334},
+          {'id':10, 'name': 'North East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -0.372241, 'latitude': 10.520953},
+          {'id':11, 'name': 'Upper East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -0.866108, 'latitude': 10.793896},
+          {'id':12, 'name': 'Upper West Region', 'confirmed': 1, 'death': 0, 'recovered': 0, 'longitude': -1.910249, 'latitude': 10.679563},
+          {'id':13, 'name': 'Volta Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.483655, 'latitude': 6.615524},
+          {'id':14, 'name': 'Oti Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': 0.178542, 'latitude': 8.059044},
+          {'id':15, 'name': 'Western Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -2.140560, 'latitude': 5.437483},
+          {'id':16, 'name': 'Western North Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -2.806650, 'latitude': 6.115648},
         ],
         confirmed_list: [],
         death_list: [],
