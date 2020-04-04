@@ -8,7 +8,11 @@
     </div>
     <!-- /.row -->
     <div class="row">
-      <div class="col-2 p-1">
+      <div class="col-lg-7 p-1 order-lg-2">
+        <CaseMap :regions="regions" :activeRegion="activeRegion"/>
+      </div>
+      <!-- /.col-7 -->
+      <div class="col-lg-2 p-1 order-lg-1">
         <div class="card mb-2">
           <div class="card-body text-center pb-0">
             <h6 class="card-subtitle text-muted mb-2 small"><strong>Total Confirmed</strong></h6>
@@ -23,11 +27,7 @@
         />
       </div>
       <!-- /.col-2 -->
-      <div class="col-7 p-1">
-        <CaseMap :regions="regions" :activeRegion="activeRegion"/>
-      </div>
-      <!-- /.col-7 -->
-      <div class="col-3">
+      <div class="col-lg-3 order-lg-3">
         <div class="row">
           <div class="col-6 p-1">
             <DeathList
