@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header text-center pb-0">
             <h6 class="card-subtitle text-muted mb-2 small"><strong>Total Deaths</strong></h6>
-            <h3 class="card-title mb-0">5</h3>
+            <h3 class="card-title mb-0">{{death_cases}}</h3>
         </div>
         <ul class="list-group list-group-flush region-list">
             <li v-for="(region, index) in regions" :key="index" class="list-group-item p-1">
@@ -23,7 +23,8 @@
         name: "DeathList",
         props: {
             regions: Array,
-            releaseButton: String
+            releaseButton: String,
+            death_cases: Number
         },
         data() {
             return{
