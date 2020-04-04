@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body">
             <div class="row map">
-                <l-map :zoom="zoom" :center="center">
+                <l-map ref="map" :zoom="zoom" :center="center">
                     <l-tile-layer :url="url" :attribution="attribution" />
                     <div v-for="(region, index) in regions" :key="index">
                         <l-circle
@@ -26,7 +26,6 @@
                             </l-popup>
                         </l-circle>
                     </div>
-
                 </l-map>
             </div>
         </div>
@@ -49,6 +48,7 @@
         name: "CaseMap",
         props: {
             regions: Array,
+            activeRegion: Object,
         },
         components: {
             LMap,
@@ -67,6 +67,36 @@
                 fillColor: '#f03',
             }
         },
+        watch: {
+            activeRegion: function (obj){
+                if (obj===null) {
+                    this.closePopup(obj);
+                }else {
+                    this.openPopup(obj);
+                }
+
+            }
+        },
+        methods:{
+            openPopup(obj){
+                this.$refs.map.mapObject.openPopup(L.popup()
+                    .setLatLng([obj.latitude, obj.longitude])
+                    .setContent(
+                        `<div>
+                            <h5>${obj.name}</h5>
+                             <p>
+                                <strong>Confirmed:</strong> ${obj.confirmed} <br>
+                                <strong>Deaths:</strong> ${obj.death} <br>
+                                <strong>Recovered:</strong> ${obj.recovered} <br>
+                                <strong>Active:</strong> ${obj.confirmed - obj.recovered - obj.death}
+                             </p>
+                        </div>`
+                    ));
+            },
+            closePopup(){
+                this.$refs.map.mapObject.closePopup();
+            }
+        }
     }
 </script>
 

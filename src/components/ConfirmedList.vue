@@ -7,6 +7,8 @@
             <li v-for="(region, index) in regions" :key="index"
                 class="list-group-item p-1">
                 <button type="button"
+                        @click="buttonClicked(index)"
+                        :class="{active: index === activeBtn}"
                         class="btn btn-outline-secondary btn-block btn-sm"
                         data-toggle="button" aria-pressed="false">
                     {{region.name}} <span class="badge badge-light">{{region.confirmed}}</span>
@@ -20,7 +22,32 @@
     export default {
         name: "ConfirmedList",
         props: {
-            regions: Array
+            regions: Array,
+            releaseButton: String
+        },
+        data() {
+            return{
+                activeBtn: null
+            }
+        },
+        methods: {
+            buttonClicked(index){
+                if(this.activeBtn === index){
+                    this.activeBtn = null;
+                    this.$emit('confirmed-btn-released', index );
+                }else{
+                    this.activeBtn = index;
+                    this.$emit('confirmed-btn-clicked', index );
+                }
+
+            }
+        },
+        watch: {
+            releaseButton: function(val) {
+                this.activeBtn = null;
+                console.log(val);
+
+            }
         }
     }
 </script>

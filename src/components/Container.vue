@@ -15,21 +15,36 @@
             <h3 class="card-title">152</h3>
           </div>
         </div>
-        <ConfirmedList :regions="confirmed_list"/>
+        <ConfirmedList
+                @confirmed-btn-clicked="confirmedBtnClicked"
+                @confirmed-btn-released="confirmedBtnReleased"
+                :regions="confirmed_list"
+                :releaseButton="confirmBtn_release"
+        />
       </div>
       <!-- /.col-2 -->
       <div class="col-7 p-1">
-        <CaseMap :regions="regions"/>
+        <CaseMap :regions="regions" :activeRegion="activeRegion"/>
       </div>
       <!-- /.col-7 -->
       <div class="col-3">
         <div class="row">
           <div class="col-6 p-1">
-            <DeathList :regions="death_list"/>
+            <DeathList
+                    @death-btn-clicked="deathBtnClicked"
+                    @death-btn-released="deathBtnReleased"
+                    :regions="death_list"
+                    :releaseButton="deathBtn_release"
+            />
           </div>
           <!-- /.col-6 -->
           <div class="col-6 p-1">
-            <RecoveredList :regions="recovered_list"/>
+            <RecoveredList
+                    @recovered-btn-clicked="recoveredBtnClicked"
+                    @recovered-btn-released="recoveredBtnReleased"
+                    :regions="recovered_list"
+                    :releaseButton="recoverBtn_release"
+            />
           </div>
           <!-- /.col-6 -->
         </div>
@@ -73,6 +88,30 @@
 
           return 0;
         }
+      },
+      confirmedBtnClicked(index){
+        this.activeRegion= this.confirmed_list[index];
+        this.deathBtn_release = 'confirm' + index;
+        this.recoverBtn_release = 'confirm' + index;
+      },
+      confirmedBtnReleased(){
+        this.activeRegion= null;
+      },
+      deathBtnClicked(index){
+        this.activeRegion= this.death_list[index];
+        this.confirmBtn_release = 'death' + index;
+        this.recoverBtn_release = 'death' + index;
+      },
+      deathBtnReleased(){
+        this.activeRegion= null;
+      },
+      recoveredBtnClicked(index){
+        this.activeRegion= this.recovered_list[index];
+        this.confirmBtn_release = 'recover' + index;
+        this.deathBtn_release = 'recover' + index;
+      },
+      recoveredBtnReleased(){
+        this.activeRegion= null;
       }
     },
     data(){
@@ -98,6 +137,11 @@
         confirmed_list: [],
         death_list: [],
         recovered_list: [],
+        activeRegion: null,
+        confirmBtn_release: null,
+        deathBtn_release: null,
+        recoverBtn_release: null,
+
       }
     },
   }
