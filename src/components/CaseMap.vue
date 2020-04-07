@@ -101,7 +101,15 @@
 </script>
 
 <style scoped>
-    .map{
-        height: 80vh;
+    @media only screen and (max-width: 600px) {
+        .map{
+            height: 50vh;
+        }
     }
+    @media only screen and (min-width: 992px) {
+        .map{
+            height: 80vh;
+        }
+    }
+
 </style>

@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center text-info">Coronavirus COVID-19 Ghana Cases</h1>
+        <h1 class="text-center text-info">Ghana COVID-19 Cases</h1>
       </div>
       <!-- /.col-12 -->
     </div>
@@ -13,7 +13,7 @@
       </div>
       <!-- /.col-7 -->
       <div class="col-lg-2 p-1 order-lg-1">
-        <div class="card mb-2">
+        <div class="card mb-2 confirm-header">
           <div class="card-body text-center pb-0">
             <h6 class="card-subtitle text-muted mb-2 small"><strong>Total Confirmed</strong></h6>
             <h3 class="card-title">{{confirmed_cases}}</h3>
@@ -36,6 +36,7 @@
                     :regions="death_list"
                     :releaseButton="deathBtn_release"
                     :death_cases="death_cases"
+                    class="deathlist"
             />
           </div>
           <!-- /.col-6 -->
@@ -46,6 +47,7 @@
                     :regions="recovered_list"
                     :releaseButton="recoverBtn_release"
                     :recovered_cases="recovered_cases"
+                    class="recoveredlist"
             />
           </div>
           <!-- /.col-6 -->
@@ -131,13 +133,13 @@
     data(){
       return{
         regions: [
-          {'id':1, 'name': 'Ashanti Region', 'confirmed': 9, 'death': 2, 'recovered': 1, 'longitude': -1.610249, 'latitude': 6.679563},
+          {'id':1, 'name': 'Ashanti Region', 'confirmed': 18, 'death': 2, 'recovered': 1, 'longitude': -1.610249, 'latitude': 6.679563},
           {'id':2, 'name': 'Bono Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -2.328566, 'latitude': 7.336451},
           {'id':3, 'name': 'Bono East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -1.932456, 'latitude': 7.596365},
           {'id':4, 'name': 'Ahafo Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -2.513065, 'latitude': 6.804260},
           {'id':5, 'name': 'Central Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -1.116047, 'latitude': 5.497993},
           {'id':6, 'name': 'Eastern Region', 'confirmed': 1, 'death': 0, 'recovered': 0, 'longitude': -0.482580, 'latitude': 6.343303},
-          {'id':7, 'name': 'Greater Accra Region', 'confirmed': 183, 'death': 3, 'recovered': 30, 'longitude': -0.181830, 'latitude': 5.608725},
+          {'id':7, 'name': 'Greater Accra Region', 'confirmed': 256, 'death': 3, 'recovered': 30, 'longitude': -0.181830, 'latitude': 5.608725},
           {'id':8, 'name': 'Northern Region', 'confirmed': 10, 'death': 0, 'recovered': 0, 'longitude': -0.831974, 'latitude': 9.408296},
           {'id':9, 'name': 'Savannah Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -1.821803, 'latitude': 9.108334},
           {'id':10, 'name': 'North East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -0.372241, 'latitude': 10.520953},
@@ -166,6 +168,21 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+  @media only screen and (max-width: 600px) {
+    h1{
+      font-size: 1.5rem;
+    }
+    .confirm-header{
+      display: none;
+    }
+    .deathlist{
+      display: none;
+    }
+    .recoveredlist{
+      display: none;
+    }
+  }
+
   .region-list {
     overflow-y: scroll;
     height: 60vh;

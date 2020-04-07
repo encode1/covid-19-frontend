@@ -53,8 +53,17 @@
 </script>
 
 <style lang="scss" scoped>
-    .region-list {
-        overflow-y: scroll;
-        height: 47vh;
+    @media only screen and (max-width: 600px) {
+        .region-list {
+            overflow-y: scroll;
+            height: 25vh;
+        }
     }
+    @media only screen and (min-width: 600px) {
+        .region-list {
+            overflow-y: scroll;
+            height: 47vh;
+        }
+    }
+
 </style>
