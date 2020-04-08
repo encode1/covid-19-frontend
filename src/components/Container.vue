@@ -133,13 +133,13 @@
     data(){
       return{
         regions: [
-          {'id':1, 'name': 'Ashanti Region', 'confirmed': 18, 'death': 2, 'recovered': 1, 'longitude': -1.610249, 'latitude': 6.679563},
+          {'id':1, 'name': 'Ashanti Region', 'confirmed': 25, 'death': 3, 'recovered': 3, 'longitude': -1.610249, 'latitude': 6.679563},
           {'id':2, 'name': 'Bono Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -2.328566, 'latitude': 7.336451},
           {'id':3, 'name': 'Bono East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -1.932456, 'latitude': 7.596365},
           {'id':4, 'name': 'Ahafo Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -2.513065, 'latitude': 6.804260},
-          {'id':5, 'name': 'Central Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -1.116047, 'latitude': 5.497993},
+          {'id':5, 'name': 'Central Region', 'confirmed': 1, 'death': 0, 'recovered': 0, 'longitude': -1.116047, 'latitude': 5.497993},
           {'id':6, 'name': 'Eastern Region', 'confirmed': 1, 'death': 0, 'recovered': 0, 'longitude': -0.482580, 'latitude': 6.343303},
-          {'id':7, 'name': 'Greater Accra Region', 'confirmed': 256, 'death': 3, 'recovered': 30, 'longitude': -0.181830, 'latitude': 5.608725},
+          {'id':7, 'name': 'Greater Accra Region', 'confirmed': 274, 'death': 3, 'recovered': 31, 'longitude': -0.181830, 'latitude': 5.608725},
           {'id':8, 'name': 'Northern Region', 'confirmed': 10, 'death': 0, 'recovered': 0, 'longitude': -0.831974, 'latitude': 9.408296},
           {'id':9, 'name': 'Savannah Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -1.821803, 'latitude': 9.108334},
           {'id':10, 'name': 'North East Region', 'confirmed': 0, 'death': 0, 'recovered': 0, 'longitude': -0.372241, 'latitude': 10.520953},
